@@ -6,7 +6,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
      
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+
+
+<title>Document</title>
 </head>
 <body class="max-w-screen-xl mx-auto bg-[#f5fff6]">
 
@@ -23,22 +25,24 @@
 
         <div class="heart flex   gap-1 h-[25px] w-[50px] justify-center bg-[#41ff6b1a] rounded-xl items-center">
 
-        <h1 class="font-bold text-[16px]">0</h1>
+        <h1 class="font-bold text-[16px]" id="heartCount">0</h1>
         <img src="assets/heart.png" alt="" class="w-[12px] h-[12px] ">
         
         </div>
 
         <div class="coin  flex   gap-1  h-[25px] w-[60px] justify-center bg-[#41ff6b1a] rounded-xl items-center">
 
-        <h1 class="font-bold text-[16px]">100</h1>
+        <h1 class="font-bold text-[16px]"id="coinCount">100</h1>
         <img src="assets/coin.png" alt="" class="w-[12px] h-[12px] ">
 
         </div>
 
         <div class="copy-count text-[10px] flex  gap-1  h-[25px] w-[60px] justify-center rounded-xl items-center  bg-[#00A63E] text-white">
-          <!-- <button class="flex gap-1 justify-center items-center"> -->
-          <p>2</p><p>Copy</p>
-          <!-- </button>    -->
+
+          
+          <p><span id="copyCount">0</span> Copy</p>
+            
+
         </div>
 
     </div>
@@ -60,7 +64,7 @@
 
 <!--card design parent-->
 
- <div class="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-6">
+<div class="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-6">
 
  
 
@@ -76,22 +80,23 @@
           <img src="assets/siren.png" alt="" class="h-[32px] w-[32px]   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
       </div>
 
       <h3 class="font-semibold text-sm">Emargency </h3>
-      <p class="text-gray-500   flex">Urgent Service</p>
+      <p class="text-gray-500   flex">Emargency Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">111</p>
       <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Free</p>
 
-  
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn  hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" data-service="Emargency Service" data-number="111"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -106,7 +111,7 @@
           <img src="assets/police.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -120,8 +125,10 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" data-service="Police Service" data-number="333"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -136,7 +143,7 @@
           <img src="assets/fire-service.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+       <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -150,8 +157,10 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" data-service="Fire Service" data-number="999"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -166,7 +175,7 @@
           <img src="assets/Bangladesh-Railway.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -180,8 +189,10 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" data-service="Railway Service" data-number="290" ><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -196,22 +207,24 @@
           <img src="assets/ambulance.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
       </div>
 
       <h3 class="font-semibold text-sm">Ambulence</h3>
-      <p class="text-gray-500   flex">Doctor Service</p>
+      <p class="text-gray-500 flex"data-service="Doctor Service">Doctor Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">122</p>
       <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Paid</p>
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" data-service="Doctor Service" data-number="122"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -226,7 +239,7 @@
           <img src="assets/brac.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -240,8 +253,11 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" 
+        data-service="Bank Service" data-number="444"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -256,7 +272,7 @@
           <img src="assets/siren.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+       <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -270,8 +286,11 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" 
+        data-service="Military Service" data-number="199"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -283,25 +302,28 @@
       <div class="flex justify-between items-start">
 
         <div class="flex items-center gap-2">
-          <img src="assets/siren.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
+          <img src="assets/police.png" alt="" class="h-[32px] w-{32px}   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
       </div>
 
-      <h3 class="font-semibold text-sm">Electricity</h3>
-      <p class="text-gray-500   flex">Electric Service</p>
+      <h3 class="font-semibold text-sm">Pilot</h3>
+      <p class="text-gray-500   flex">Air Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">999</p>
       <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">F</p>
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"
+         data-service="Air Service" data-number="999"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -316,7 +338,7 @@
           <img src="assets/siren.png" alt="" class="h-[30px] w-[30px]   p-1 bg-[#ffe3e2] rounded-xl">
         </div>
 
-        <button>
+        <button class="heart-btn">
            <i class="fa-regular fa-heart"></i>
         </button>
 
@@ -330,8 +352,11 @@
 
   
       <div class="flex gap-2 mt-auto">
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300"><i class="fa-regular fa-copy"></i> Copy</button>
-        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg border border-gray-300 copy-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="flex-1 text-sm py-2 px-2 w-[182.33px] h-[35px] rounded-lg bg-[#00A63E] text-white call-btn hover:scale-105 hover:shadow-lg 
+           transition-all duration-300" 
+         data-service="Force Service" data-number="99"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
 
   </div>
@@ -372,10 +397,87 @@
 
 
 
+ <!-- javaScript file -->
  
+<script>
  
+// Copy-Count-Display
+
+  let count = 0;
+
+  const copyBoxDisplay = document.getElementById("copyCount");
+  const copyButtons = document.querySelectorAll(".copy-btn");
+
+  copyButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      count++;  
+      copyBoxDisplay.innerText = count ;  
+    });
+  });
+
+
+  // Heart-Count-Display
+
+
+
+  const heartCount = document.getElementById("heartCount");
+  const heartIconsBtn = document.querySelectorAll(".heart-btn");
+
+ heartIconsBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      count++;  
+      heartCount.innerText = count ;  
+    });
+  });
+
+
+ // Coin Count
+
+  let coins = 100;
+
+
+  const coinDisplay = document.getElementById("coinCount");
+
+  function updateCoinDisplay() {
+    coinDisplay.innerText = coins ;
+  }
+
+  updateCoinDisplay();
+
+  document.querySelectorAll(".call-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
     
+    
+      if (coins <= 0) {
+        alert("You have not sufficient coin , you need 20 coins to calling");
+        return;
+      }
+
+      const service = btn.dataset.service || "";
+      const number  = btn.dataset.number  || "";
+
+      alert("You are calling " + service + " " + number);
+
+       
+      coins -= 20;
+      if (coins < 0) coins = 0;
+
+      updateCoinDisplay();
+
+        
+  });
+  });
+
+
+  
  
+
+</script>
+
+
  
 </body>
+
+
+
 </html>
