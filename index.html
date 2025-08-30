@@ -86,7 +86,7 @@
 
       </div>
 
-      <h3 class="font-semibold text-sm">Emargency </h3>
+      <h3 class="font-semibold text-sm">National Emargency Number </h3>
       <p class="text-gray-500   flex">Emargency Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">111</p>
@@ -121,7 +121,7 @@
       <p class="text-gray-500   flex">Police Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">333</p>
-      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">P</p>
+      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">All</p>
 
   
       <div class="flex gap-2 mt-auto">
@@ -216,7 +216,7 @@
       <h3 class="font-semibold text-sm">Ambulence</h3>
       <p class="text-gray-500 flex"data-service="Doctor Service">Doctor Service</p>
       
-      <p class="text-3xl font-bold text-[#006747]">122</p>
+      <p class="text-3xl font-bold text-[#006747]">122-4445-660</p>
       <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Paid</p>
 
   
@@ -249,7 +249,7 @@
       <p class="text-gray-500   flex">Bank Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">444</p>
-      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Fire</p>
+      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Private</p>
 
   
       <div class="flex gap-2 mt-auto">
@@ -282,7 +282,7 @@
       <p class="text-gray-500   flex">Military Service</p>
       
       <p class="text-3xl font-bold text-[#006747]">199</p>
-      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Fire</p>
+      <p class="text-xs text-gray-500 w-[61px] h-[37px] bg-[#f2f2f2] rounded-2xl flex justify-center items-center">Govt.</p>
 
   
       <div class="flex gap-2 mt-auto">
@@ -375,11 +375,13 @@
      </div>
      
     <div class=" text-[10px] flex  gap-1  h-[25px] w-[60px] justify-center rounded-xl items-center  bg-[#00A63E] text-white">
-       <button>Clear</button>
+       <button id="clearHistory">Clear</button>
     </div>
 </div>    
 
-     <div class="mt-5   flex justify-between items-center text-[10px] p-4 rounded-xl bg-[#fafafa]">
+<div id="history-container">
+
+     <!-- <div class="mt-5   flex justify-between items-center text-[10px] p-4 rounded-xl bg-[#fafafa]">
         <div>
           <h2>Fire Service Number</h2>
           <p class="text-xs text-gray-500">999</p>
@@ -388,8 +390,9 @@
         <div> 
           <h1>11:36:58 AM</h1>
         </div>
-     </div>
+     </div> -->
 
+</div>
     </aside>
  
   
@@ -431,7 +434,7 @@
   });
 
 
- // Coin Count
+ // Coin Count for Call service
 
   let coins = 100;
 
@@ -444,6 +447,36 @@
 
   updateCoinDisplay();
 
+  
+   const callHistoryContainer = document.getElementById("history-container");
+
+  // Function to add call history
+  function callHistory(service, number) {
+    const date = new Date().toLocaleTimeString();
+
+    const historyData = [
+      { name: service, number: number, date: date }
+    ];
+
+    for (const data of historyData) {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <div class="mt-5 flex justify-between items-center text-[10px] p-4 rounded-xl bg-[#fafafa]">
+          <div>
+            <h2>${data.name}</h2>
+            <p class="text-xs text-gray-500">${data.number}</p>
+          </div>
+          <div> 
+            <h1>${data.date}</h1>
+          </div>
+        </div>
+      `;
+      callHistoryContainer.appendChild(div);
+    }
+  }
+
+  // Call Button FUCTIONALITY 
+
   document.querySelectorAll(".call-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
     
@@ -455,7 +488,7 @@
 
       const service = btn.dataset.service || "";
       const number  = btn.dataset.number  || "";
-
+    
       alert("You are calling " + service + " " + number);
 
        
@@ -463,20 +496,25 @@
       if (coins < 0) coins = 0;
 
       updateCoinDisplay();
-
+      callHistory(service, number);
         
   });
   });
 
+// Clear history 
+   const clearButton = document.getElementById("clearHistory");
 
-  
- 
+  clearButton.addEventListener("click", function () {
+    document.getElementById("history-container").innerHTML = "";
+  });
+
 
 </script>
 
 
  
 </body>
+
 
 
 
